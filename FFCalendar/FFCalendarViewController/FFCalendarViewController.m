@@ -176,8 +176,11 @@ const CGFloat roundCornerSize = 5;
     [self.navigationItem setLeftBarButtonItems:@[barButtonLabel, fixedItem, barButtonToday]];
 }
 
-//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-//{
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
+    [viewCalendarMonth.collectionViewMonth.collectionViewLayout invalidateLayout];
+
 //    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
 //    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
 //        //is rotating TO landscape
@@ -186,7 +189,7 @@ const CGFloat roundCornerSize = 5;
 //    else{
 //        [viewCalendarYear setFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
 //    }
-//}
+}
 
 //- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 //{
@@ -212,7 +215,8 @@ const CGFloat roundCornerSize = 5;
     [self.view addSubview:viewCalendarYear];
     NSLog(@"viewCalendarYear %@", NSStringFromCGRect(viewCalendarYear.frame));
     
-    viewCalendarMonth = [[FFMonthCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+    viewCalendarMonth = [[FFMonthCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height)];
+    viewCalendarMonth.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [viewCalendarMonth setProtocol:self];
     [viewCalendarMonth setDictEvents:dictEvents];
     [self.view addSubview:viewCalendarMonth];

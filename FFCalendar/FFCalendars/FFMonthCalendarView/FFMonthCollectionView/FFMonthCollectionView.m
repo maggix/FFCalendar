@@ -59,6 +59,7 @@
         
         [self setScrollEnabled:YES];
         [self setPagingEnabled:YES];
+        [self setBounces:NO];
         
         [self setShowsVerticalScrollIndicator:NO];
         
@@ -116,6 +117,7 @@
     FFMonthCell *cell = (FFMonthCell *)[collectionView dequeueReusableCellWithReuseIdentifier:REUSE_IDENTIFIER_MONTH_CELL forIndexPath:indexPath];
     [cell initLayout];
     [cell setProtocol:self];
+    cell.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     
     if (indexPath.row % 7 == 0 || (indexPath.row + 1) % 7 == 0) {
         [cell markAsWeekend];

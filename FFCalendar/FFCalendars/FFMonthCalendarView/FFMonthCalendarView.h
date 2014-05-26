@@ -9,6 +9,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FFMonthCollectionView.h"
 
 @protocol FFMonthCalendarViewProtocol <NSObject>
 @required
@@ -17,6 +18,7 @@
 
 @interface FFMonthCalendarView : UIView
 
+@property (nonatomic, strong) FFMonthCollectionView *collectionViewMonth;
 @property (nonatomic, strong) NSMutableDictionary *dictEvents;
 @property (nonatomic, strong) id<FFMonthCalendarViewProtocol> protocol;
 

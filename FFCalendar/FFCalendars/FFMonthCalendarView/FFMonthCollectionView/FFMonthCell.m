@@ -49,16 +49,20 @@
     
     if (!imageViewCircle) {
         imageViewCircle = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width-32.-3., 3., 32., 32.)];
+       imageViewCircle.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin; 
         [self addSubview:imageViewCircle];
+
         
         labelDay = [[UILabel alloc] initWithFrame:CGRectMake((imageViewCircle.frame.size.width-20.)/2., (imageViewCircle.frame.size.height-20.)/2., 20., 20.)];
-        [labelDay setTextAlignment:NSTextAlignmentCenter];
+        [labelDay setTextAlignment:NSTextAlignmentRight];
+        labelDay.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
         [imageViewCircle addSubview:labelDay];
     }
     
     [self setBackgroundColor:[UIColor whiteColor]];
     [self.labelDay setText:@""];
     [self.labelDay setTextColor:[UIColor blackColor]];
+    self.labelDay.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.imageViewCircle setImage:nil];
     
     for (UIButton *button in arrayButtons) {
@@ -98,6 +102,7 @@
             
             buttonOfNumber++;
             FFButtonWithEditAndDetailPopoversForMonthCell *button = [[FFButtonWithEditAndDetailPopoversForMonthCell alloc] initWithFrame:CGRectMake(0, yFirstButton+(buttonOfNumber-1)*height, self.frame.size.width, height)];
+            button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
             [self addSubview:button];
             [arrayButtons addObject:button];
             
@@ -108,6 +113,7 @@
                 FFEvent *event = [arrayEvents objectAtIndex:i];
                 [button setTitle:event.stringCustomerName forState:UIControlStateNormal];
                 [button setEvent:event];
+                button.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;                
                 [button setProtocol:self];
             }
         }

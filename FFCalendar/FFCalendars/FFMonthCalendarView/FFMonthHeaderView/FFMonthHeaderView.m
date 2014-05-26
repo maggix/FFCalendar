@@ -26,10 +26,11 @@
         for (int i = 0; i < [[FFUtils arrayWeekAbrev] count]; i++) {
 
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i*(width+SPACE_COLLECTIONVIEW_CELL), 0., width-5., self.frame.size.height)];
-            [label setTextAlignment:NSTextAlignmentRight];
+            [label setTextAlignment:NSTextAlignmentCenter];
             [label setText:[[FFUtils arrayWeekAbrev] objectAtIndex:i]];
             [label setTextColor:[arrayColor objectAtIndex:i]];
             [label setFont:[UIFont boldSystemFontOfSize:label.font.pointSize]];
+            label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
             [self addSubview:label];
         }
 

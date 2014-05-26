@@ -10,11 +10,10 @@
 
 #import "FFMonthCalendarView.h"
 
-#import "FFMonthCollectionView.h"
 #import "FFMonthHeaderView.h"
+#import "FFMonthCollectionViewFlowLayout.h"
 
 @interface FFMonthCalendarView () <FFMonthCollectionViewProtocol>
-@property (nonatomic, strong) FFMonthCollectionView *collectionViewMonth;
 @end
 
 @implementation FFMonthCalendarView
@@ -36,9 +35,12 @@
         [self setBackgroundColor:[UIColor whiteColor]];
         
         FFMonthHeaderView *view = [[FFMonthHeaderView alloc] initWithFrame:CGRectMake(0., 0., self.frame.size.width, HEADER_HEIGHT_MONTH)];
+        view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:view];
         
-        collectionViewMonth = [[FFMonthCollectionView alloc] initWithFrame:CGRectMake(0., HEADER_HEIGHT_MONTH, self.frame.size.width, self.frame.size.height-HEADER_HEIGHT_MONTH) collectionViewLayout:[UICollectionViewLayout new]];
+        collectionViewMonth = [[FFMonthCollectionView alloc] initWithFrame:CGRectMake(0., HEADER_HEIGHT_MONTH, self.frame.size.width, self.frame.size.height-HEADER_HEIGHT_MONTH) collectionViewLayout:[FFMonthCollectionViewFlowLayout new]];
+        collectionViewMonth.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+
         [collectionViewMonth setProtocol:self];
         [self dateChanged:nil];
         [self addSubview:collectionViewMonth];
