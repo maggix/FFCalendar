@@ -26,6 +26,8 @@
 @property (nonatomic, strong) FFDayCalendarView *viewCalendarDay;
 @end
 
+const CGFloat roundCornerSize = 5;
+
 @implementation FFCalendarViewController
 
 #pragma mark - Synthesize
@@ -122,21 +124,29 @@
     FFRedAndWhiteButton *buttonYear = [[FFRedAndWhiteButton alloc] initWithFrame:CGRectMake(0., 0., 80., 30.)];
     [buttonYear addTarget:self action:@selector(buttonYearAction:) forControlEvents:UIControlEventTouchUpInside];
     [buttonYear setTitle:@"year" forState:UIControlStateNormal];
+    buttonYear.layer.cornerRadius = roundCornerSize;
+    buttonYear.clipsToBounds = YES;
     UIBarButtonItem *barButtonYear = [[UIBarButtonItem alloc] initWithCustomView:buttonYear];
     
     FFRedAndWhiteButton *buttonMonth = [[FFRedAndWhiteButton alloc] initWithFrame:CGRectMake(0., 0., 80., 30.)];
     [buttonMonth addTarget:self action:@selector(buttonMonthAction:) forControlEvents:UIControlEventTouchUpInside];
     [buttonMonth setTitle:@"month" forState:UIControlStateNormal];
+    buttonMonth.layer.cornerRadius = roundCornerSize;
+    buttonMonth.clipsToBounds = YES;
     UIBarButtonItem *barButtonMonth = [[UIBarButtonItem alloc] initWithCustomView:buttonMonth];
     
     FFRedAndWhiteButton *buttonWeek = [[FFRedAndWhiteButton alloc] initWithFrame:CGRectMake(0., 0., 80., 30.)];
     [buttonWeek addTarget:self action:@selector(buttonWeekAction:) forControlEvents:UIControlEventTouchUpInside];
     [buttonWeek setTitle:@"week" forState:UIControlStateNormal];
+    buttonWeek.layer.cornerRadius = roundCornerSize;
+    buttonWeek.clipsToBounds = YES;
     UIBarButtonItem *barButtonWeek = [[UIBarButtonItem alloc] initWithCustomView:buttonWeek];
     
     FFRedAndWhiteButton *buttonDay = [[FFRedAndWhiteButton alloc] initWithFrame:CGRectMake(0., 0., 80., 30.)];
     [buttonDay addTarget:self action:@selector(buttonDayAction:) forControlEvents:UIControlEventTouchUpInside];
     [buttonDay setTitle:@"day" forState:UIControlStateNormal];
+    buttonDay.layer.cornerRadius = roundCornerSize;
+    buttonDay.clipsToBounds = YES;
     UIBarButtonItem *barButtonDay = [[UIBarButtonItem alloc] initWithCustomView:buttonDay];
     
     FFButtonAddEventWithPopover *buttonAdd = [[FFButtonAddEventWithPopover alloc] initWithFrame:CGRectMake(0., 0., 30., 44)];
@@ -152,6 +162,8 @@
     FFRedAndWhiteButton *buttonToday = [[FFRedAndWhiteButton alloc] initWithFrame:CGRectMake(0., 0., 80., 30)];
     [buttonToday addTarget:self action:@selector(buttonTodayAction:) forControlEvents:UIControlEventTouchUpInside];
     [buttonToday setTitle:@"today" forState:UIControlStateNormal];
+    buttonToday.layer.cornerRadius = roundCornerSize;
+    buttonToday.clipsToBounds = YES;
     UIBarButtonItem *barButtonToday = [[UIBarButtonItem alloc] initWithCustomView:buttonToday];
     
     labelWithMonthAndYear = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., 170., 30)];
