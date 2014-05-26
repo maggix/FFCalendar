@@ -206,7 +206,7 @@ const CGFloat roundCornerSize = 5;
     NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
     
     //Initializing the Subviews with the non-rotated view size is OK because AutoResizing will take care of it.
-    viewCalendarYear = [[FFYearCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+    viewCalendarYear = [[FFYearCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height)];
     viewCalendarYear.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [viewCalendarYear setProtocol:self];
     [self.view addSubview:viewCalendarYear];
