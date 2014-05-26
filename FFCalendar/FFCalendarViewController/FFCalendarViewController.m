@@ -176,11 +176,41 @@ const CGFloat roundCornerSize = 5;
     [self.navigationItem setLeftBarButtonItems:@[barButtonLabel, fixedItem, barButtonToday]];
 }
 
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+//{
+//    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
+//    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
+//        //is rotating TO landscape
+//        [viewCalendarYear setFrame:CGRectMake(0., 0., self.view.frame.size.height, self.view.frame.size.width-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+//    }
+//    else{
+//        [viewCalendarYear setFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+//    }
+//}
+
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+//{
+//    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
+//    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+//        //is rotating TO landscape
+//        [viewCalendarYear setFrame:CGRectMake(0., 0., self.view.frame.size.height, self.view.frame.size.width-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+//    }
+//    else{
+//         [viewCalendarYear setFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+//    }
+////    [viewCalendarYear.collectionViewYear reloadData];
+//}
+
+
 - (void)addSubviews {
+    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
     
+    //Initializing the Subviews with the non-rotated view size is OK because AutoResizing will take care of it.
     viewCalendarYear = [[FFYearCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
+    viewCalendarYear.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [viewCalendarYear setProtocol:self];
     [self.view addSubview:viewCalendarYear];
+    NSLog(@"viewCalendarYear %@", NSStringFromCGRect(viewCalendarYear.frame));
     
     viewCalendarMonth = [[FFMonthCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height-self.navigationController.navigationBar.frame.size.height-self.navigationController.navigationBar.frame.origin.y)];
     [viewCalendarMonth setProtocol:self];

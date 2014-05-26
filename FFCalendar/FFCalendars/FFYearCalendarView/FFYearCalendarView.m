@@ -12,6 +12,8 @@
 
 #import "FFYearCollectionView.h"
 
+#import "FFYearCollectionViewFlowLayout.h"
+
 @interface FFYearCalendarView () <FFYearCollectionViewProtocol>
 @property (nonatomic, strong) FFYearCollectionView *collectionViewYear;
 @end
@@ -33,7 +35,11 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dateChanged:) name:DATE_MANAGER_DATE_CHANGED object:nil];
         [self setBackgroundColor:[UIColor whiteColor]];
         
-        collectionViewYear = [[FFYearCollectionView alloc] initWithFrame:CGRectMake(SPACE_COLLECTIONVIEW_CELL_YEAR, SPACE_COLLECTIONVIEW_CELL_YEAR, self.frame.size.width-2*SPACE_COLLECTIONVIEW_CELL_YEAR, self.frame.size.height-2*SPACE_COLLECTIONVIEW_CELL_YEAR) collectionViewLayout:[UICollectionViewLayout new]];
+        //NSStringFromCGRect: A string whose contents are of the form “{{x,y},{w, h}}
+        NSLog(@"%@ self.frame: %@", NSStringFromClass([self class]), NSStringFromCGRect(self.frame));
+        collectionViewYear = [[FFYearCollectionView alloc] initWithFrame:CGRectMake(SPACE_COLLECTIONVIEW_CELL_YEAR, SPACE_COLLECTIONVIEW_CELL_YEAR, self.frame.size.width-2*SPACE_COLLECTIONVIEW_CELL_YEAR, self.frame.size.height-2*SPACE_COLLECTIONVIEW_CELL_YEAR) collectionViewLayout:[FFYearCollectionViewFlowLayout new]];
+        collectionViewYear.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+
         [collectionViewYear setProtocol:self];
         [self dateChanged:nil];
         [self addSubview:collectionViewYear];

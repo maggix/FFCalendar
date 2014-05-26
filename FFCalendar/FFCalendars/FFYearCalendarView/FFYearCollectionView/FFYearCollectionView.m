@@ -116,8 +116,15 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-   sizeOfCell =  CGSizeMake((self.frame.size.width-2.*SPACE_COLLECTIONVIEW_CELL_YEAR)/3., (self.frame.size.height-3.*SPACE_COLLECTIONVIEW_CELL_YEAR)/4.);
-    
+    if (UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation)) {
+        //Cells are 3x4 (3 lines 4 columns)
+        sizeOfCell = CGSizeMake((self.frame.size.width-3.*SPACE_COLLECTIONVIEW_CELL_YEAR)/4., (self.frame.size.height-2.*SPACE_COLLECTIONVIEW_CELL_YEAR)/3.);
+    }
+    else{
+        //Cells are 4x3 (4 lines 3 columns)
+        sizeOfCell = CGSizeMake((self.frame.size.width-2.*SPACE_COLLECTIONVIEW_CELL_YEAR)/3., (self.frame.size.height-3.*SPACE_COLLECTIONVIEW_CELL_YEAR)/4.);
+    }
+    NSLog(@"%@ sizeOfCell: %@",NSStringFromClass([self class]), NSStringFromCGSize(sizeOfCell));
     return sizeOfCell;
 }
 
