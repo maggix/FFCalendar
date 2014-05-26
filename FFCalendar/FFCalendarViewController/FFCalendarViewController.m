@@ -68,6 +68,8 @@ const CGFloat roundCornerSize = 5;
     [self addSubviews];
     
     [self bringCalendarToFrontAndSelectButton:[arrayButtons objectAtIndex:0]];
+    
+    [self.navigationController setToolbarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning
