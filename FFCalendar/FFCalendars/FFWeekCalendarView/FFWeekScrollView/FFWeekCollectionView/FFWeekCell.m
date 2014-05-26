@@ -69,6 +69,8 @@
                 [view setBackgroundColor:[UIColor cinzaClaro]];
                 [labelHourMin addSubview:view];
             }
+            //Autoresizing Mask
+            labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [self addSubview:labelHourMin];
             [arrayLabelsHourAndMin addObject:labelHourMin];
             

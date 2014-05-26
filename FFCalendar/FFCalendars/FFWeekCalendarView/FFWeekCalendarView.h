@@ -9,6 +9,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FFWeekHeaderCollectionView.h"
+#import "FFWeekScrollView.h"
 
 @protocol FFWeekCalendarViewProtocol <NSObject>
 @required
@@ -16,6 +18,9 @@
 @end
 
 @interface FFWeekCalendarView : UIView
+
+@property (nonatomic, strong) FFWeekHeaderCollectionView *scrollViewHeaderWeek;
+@property (nonatomic, strong) FFWeekScrollView *weekContainerScroll;
 
 @property (nonatomic, strong) id<FFWeekCalendarViewProtocol> protocol;
 @property (nonatomic, strong) NSMutableDictionary *dictEvents;

@@ -103,6 +103,8 @@
     FFWeekHeaderCell *cell = (FFWeekHeaderCell *)[collectionView dequeueReusableCellWithReuseIdentifier:REUSE_IDENTIFIER_MONTH_CELL forIndexPath:indexPath];
     [cell cleanCell];
     cell.date = dateOfLabel;
+    //Autoresizing MAsk
+    cell.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [cell.label setText:[NSString stringWithFormat:@"%@, %i", [[FFUtils arrayWeekAbrev] objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day]];
     
@@ -114,7 +116,6 @@
         [cell.imageView setImage:[UIImage imageNamed:@"redCircle"]];
         [cell.label setTextColor:[UIColor whiteColor]];
     }
-
     
     return cell;
 }

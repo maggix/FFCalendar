@@ -44,16 +44,25 @@
     if (!viewWithHourLines) {
         
         viewWithHourLines = [[FFViewWithHourLines alloc] initWithFrame:CGRectMake(0, 0, 80., self.frame.size.height)];
+        //Autoresizing Mask
+        viewWithHourLines.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:viewWithHourLines];
         
         collectionViewWeek = [[FFWeekCollectionView alloc] initWithFrame:CGRectMake(viewWithHourLines.frame.size.width,viewWithHourLines.frame.origin.y,self.frame.size.width-viewWithHourLines.frame.size.width,viewWithHourLines.totalHeight)collectionViewLayout:[UICollectionViewFlowLayout new]];
+        //Autoresizing Mask
+        collectionViewWeek.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
         [self scrollToPage:[NSDate componentsOfDate:[[FFDateManager sharedManager] currentDate]].weekOfMonth+1];
         [self addSubview:collectionViewWeek];
         
         labelWithActualHour = [viewWithHourLines labelWithCurrentHourWithWidth:self.frame.size.width];
         [labelWithActualHour setFrame:CGRectMake(labelWithActualHour.frame.origin.x, labelWithActualHour.frame.origin.y+viewWithHourLines.frame.origin.y, labelWithActualHour.frame.size.width, labelWithActualHour.frame.size.height)];
+        //Autoresizing Mask
+        labelWithActualHour.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:labelWithActualHour];
         labelGrayWithActualHour = viewWithHourLines.labelWithSameYOfCurrentHour;
+        //Autoresizing Mask
+        labelGrayWithActualHour.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [labelGrayWithActualHour setAlpha:0.];
         
         [self setContentSize:CGSizeMake(self.frame.size.width, collectionViewWeek.frame.origin.y+collectionViewWeek.frame.size.height)];

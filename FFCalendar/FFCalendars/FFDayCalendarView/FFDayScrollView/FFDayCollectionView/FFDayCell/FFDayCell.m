@@ -74,6 +74,8 @@
                 [view setBackgroundColor:[UIColor cinzaClaro]];
                 [labelHourMin addSubview:view];
             }
+            //Autoresizing Mask
+            labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             [self addSubview:labelHourMin];
             [arrayLabelsHourAndMin addObject:labelHourMin];
             
@@ -82,6 +84,7 @@
                 labelRed = [self labelWithCurrentHourWithWidth:labelHourMin.frame.size.width yCurrent:labelHourMin.frame.origin.y];
                 [self addSubview:labelRed];
                 [labelRed setAlpha:0];
+                labelRed.autoresizingMask = UIViewAutoresizingFlexibleWidth;
                 labelWithSameYOfCurrentHour = labelHourMin;
             }
             
@@ -99,6 +102,8 @@
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(label.frame.origin.x+width+10., HEIGHT_CELL_MIN/2., _width-label.frame.origin.x-width-20., 1.)];
     [view setBackgroundColor:[UIColor redColor]];
+    //Autoresizing Mask
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [label addSubview:view];
     
     return label;

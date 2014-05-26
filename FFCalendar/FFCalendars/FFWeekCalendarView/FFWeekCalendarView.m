@@ -10,12 +10,8 @@
 
 #import "FFWeekCalendarView.h"
 
-#import "FFWeekHeaderCollectionView.h"
-#import "FFWeekScrollView.h"
 
 @interface FFWeekCalendarView () <FFWeekCollectionViewProtocol, FFWeekHeaderCollectionViewProtocol>
-@property (nonatomic, strong) FFWeekHeaderCollectionView *scrollViewHeaderWeek;
-@property (nonatomic, strong) FFWeekScrollView *weekContainerScroll;
 @end
 
 @implementation FFWeekCalendarView
@@ -56,16 +52,24 @@
     if (!scrollViewHeaderWeek) {
         UIView *viewLeft = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 80., HEADER_HEIGHT_SCROLL)];
         [viewLeft setBackgroundColor:[UIColor cinzaSuperClaro]];
+        //Autoresizing Mask
+        viewLeft.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:viewLeft];
         
         scrollViewHeaderWeek = [[FFWeekHeaderCollectionView alloc] initWithFrame:CGRectMake(viewLeft.frame.size.width, 0, self.frame.size.width-viewLeft.frame.size.width, HEADER_HEIGHT_SCROLL)];
         [scrollViewHeaderWeek setProtocol:self];
         [self scrollToPage:[NSDate componentsOfDate:[[FFDateManager sharedManager] currentDate]].weekOfMonth+1];
+        //Autoresizing Mask
+        scrollViewHeaderWeek.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:scrollViewHeaderWeek];
         
         weekContainerScroll = [[FFWeekScrollView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT_SCROLL, self.frame.size.width, self.frame.size.height-HEADER_HEIGHT_SCROLL)];
+        
         [self addSubview:weekContainerScroll];
     }
+    //Autoresizing Mask
+    weekContainerScroll.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+
     [weekContainerScroll setDictEvents:dictEvents];
     [weekContainerScroll.collectionViewWeek setProtocol:self];
 }

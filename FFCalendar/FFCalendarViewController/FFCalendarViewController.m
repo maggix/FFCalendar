@@ -180,6 +180,8 @@ const CGFloat roundCornerSize = 5;
 {
     NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
     [viewCalendarMonth.collectionViewMonth.collectionViewLayout invalidateLayout];
+    [viewCalendarWeek.scrollViewHeaderWeek.collectionViewLayout invalidateLayout];
+    [viewCalendarWeek.weekContainerScroll.collectionViewWeek.collectionViewLayout invalidateLayout];
 
 //    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
 //    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
@@ -222,6 +224,7 @@ const CGFloat roundCornerSize = 5;
     [self.view addSubview:viewCalendarMonth];
     
     viewCalendarWeek = [[FFWeekCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height)];
+    viewCalendarWeek.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [viewCalendarWeek setProtocol:self];
     [viewCalendarWeek setDictEvents:dictEvents];
     [self.view addSubview:viewCalendarWeek];

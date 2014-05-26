@@ -24,10 +24,16 @@
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0., 0., self.frame.size.width, self.frame.size.height)];
         [imageView setContentMode:UIViewContentModeCenter];
+        //Autoresizing Mask
+        imageView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+
         [self addSubview:imageView];
         
         label = [[UILabel alloc] initWithFrame:CGRectMake(0., 0., self.frame.size.width, self.frame.size.height)];
         [label setTextAlignment:NSTextAlignmentCenter];
+        //Autoresizing Mask
+        label.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
+
         [self addSubview:label];
     }
     return self;
