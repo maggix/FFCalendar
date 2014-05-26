@@ -22,6 +22,8 @@
 		55AFEC6618AC435D005D2B91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55AFEC6418AC435D005D2B91 /* InfoPlist.strings */; };
 		55AFEC6818AC435D005D2B91 /* FFCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFEC6718AC435D005D2B91 /* FFCalendarTests.m */; };
 		AC0AC2A71933607700739351 /* FFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0AC2A61933607700739351 /* FFUtils.m */; };
+		AC10553E1933C6F70029E5A9 /* blackCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC10553C1933C6F70029E5A9 /* blackCircle@2x.png */; };
+		AC10553F1933C6F70029E5A9 /* redCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC10553D1933C6F70029E5A9 /* redCircle@2x.png */; };
 		CDA596E619086CFA00CB4F93 /* DailyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E219086CFA00CB4F93 /* DailyCalendar.png */; };
 		CDA596E719086CFA00CB4F93 /* MonthlyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */; };
 		CDA596E819086CFA00CB4F93 /* WeeklyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */; };
@@ -114,6 +116,8 @@
 		55AFEC6718AC435D005D2B91 /* FFCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFCalendarTests.m; sourceTree = "<group>"; };
 		AC0AC2A51933607700739351 /* FFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUtils.h; sourceTree = "<group>"; };
 		AC0AC2A61933607700739351 /* FFUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUtils.m; sourceTree = "<group>"; };
+		AC10553C1933C6F70029E5A9 /* blackCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackCircle@2x.png"; sourceTree = "<group>"; };
+		AC10553D1933C6F70029E5A9 /* redCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redCircle@2x.png"; sourceTree = "<group>"; };
 		CDA596E219086CFA00CB4F93 /* DailyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailyCalendar.png; sourceTree = "<group>"; };
 		CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MonthlyCalendar.png; sourceTree = "<group>"; };
 		CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeeklyCalendar.png; sourceTree = "<group>"; };
@@ -719,6 +723,8 @@
 		CDA8F1F418DA43EA0080DE6D /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AC10553C1933C6F70029E5A9 /* blackCircle@2x.png */,
+				AC10553D1933C6F70029E5A9 /* redCircle@2x.png */,
 				CDA8F1F518DA43EA0080DE6D /* blackCircle.png */,
 				CDA8F1F618DA43EA0080DE6D /* redCircle.png */,
 				CDA596E219086CFA00CB4F93 /* DailyCalendar.png */,
@@ -819,8 +825,10 @@
 				CDA8F22F18DA43EA0080DE6D /* SVProgressHUD.bundle in Resources */,
 				55AFEC4918AC435D005D2B91 /* InfoPlist.strings in Resources */,
 				CDA596E719086CFA00CB4F93 /* MonthlyCalendar.png in Resources */,
+				AC10553F1933C6F70029E5A9 /* redCircle@2x.png in Resources */,
 				CDA8F22E18DA43EA0080DE6D /* redCircle.png in Resources */,
 				CDA596E919086CFA00CB4F93 /* YearlyCalendar.png in Resources */,
+				AC10553E1933C6F70029E5A9 /* blackCircle@2x.png in Resources */,
 				CDA596E619086CFA00CB4F93 /* DailyCalendar.png in Resources */,
 				CDA8F22D18DA43EA0080DE6D /* blackCircle.png in Resources */,
 				55AFEC5418AC435D005D2B91 /* Images.xcassets in Resources */,
