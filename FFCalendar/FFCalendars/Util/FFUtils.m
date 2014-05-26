@@ -40,7 +40,7 @@
     [df setLocale:locale];
 //    [df setLocale:[NSLocale currentLocale]];
     for (NSInteger i = 0; i < 7; i++) {
-        [days addObject: [[[df weekdaySymbols] objectAtIndex:i] substringToIndex:2]];
+        [days addObject: [[[df weekdaySymbols] objectAtIndex:i] substringToIndex:3]];
     }
     return days;
 }
