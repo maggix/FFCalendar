@@ -19,21 +19,11 @@ typedef enum ScrollDirection {
     ScrollDirectionCrazy,
 } ScrollDirection;
 
-//#define dictWeekNumberName @{@1:@"Domingo", @2:@"Segunda-feira", @3:@"Terça-feira", @4:@"Quarta-feira", @5:@"Quinta-feira", @6:@"Sexta-feira", @7:@"Sábado"}
-//#define arrayWeekAbrev @[@"dom", @"seg", @"ter", @"qua", @"qui", @"sex", @"sáb"]
-//#define arrayMonthName @[@"Janeiro", @"Fevereiro", @"Março", @"Abril", @"Maio", @"Junho", @"Julho", @"Agosto", @"Setembro", @"Outubro", @"Novembro", @"Dezembro"]
-
-//#define dictWeekNumberName @{@1:@"Sunday", @2:@"Monday", @3:@"Tuesday", @4:@"Wednesday", @5:@"Thursday", @6:@"Friday", @7:@"Saturday"}
-//#define arrayWeekAbrev @[@"Sun", @"Mon", @"Tue", @"Wed", @"Thu", @"Fri", @"Sat"]
-//#define arrayMonthName @[@"January", @"February", @"March", @"April", @"May", @"June", @"July", @"August", @"September", @"October", @"November", @"December"]
-//#define arrayMonthNameAbrev @[@"Jan", @"Feb", @"Mar", @"Apr", @"May", @"Jun", @"Jul", @"Aug", @"Sep", @"Oct", @"Nov", @"Dec"]
-
-
 #define BUTTON_HEIGHT 44.
 
 #define STORYBOARD_ID_ROOTVC @"root"
 
-#define SPACE_COLLECTIONVIEW_CELL_YEAR 30.
+#define SPACE_COLLECTIONVIEW_CELL_YEAR 10.
 #define SPACE_COLLECTIONVIEW_CELL 2.
 #define HEADER_HEIGHT_MONTH 32.
 #define HEADER_HEIGHT_SCROLL 100.
