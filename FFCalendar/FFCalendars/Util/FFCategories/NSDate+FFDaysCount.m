@@ -10,6 +10,8 @@
 
 #import "NSDate+FFDaysCount.h"
 
+#import "FFUtils.h"
+
 @implementation NSDate (FFDaysCount)
 
 
@@ -100,7 +102,7 @@
     NSDateComponents *comp = [NSDate componentsOfDate:date];
     
     //    return [NSString stringWithFormat:@"%@, %i/%i/%i", [dictWeekNumberName objectForKey:[NSNumber numberWithInt:comp.weekday]], comp.day, comp.month, comp.year];
-    return [NSString stringWithFormat:@"%@, %@ %i, %i", [dictWeekNumberName objectForKey:[NSNumber numberWithInt:comp.weekday]], [arrayMonthNameAbrev objectAtIndex:comp.month-1], comp.day, comp.year];
+    return [NSString stringWithFormat:@"%@, %@ %i, %i", [[FFUtils dictWeekNumberName] objectForKey:[NSNumber numberWithInt:comp.weekday]], [[FFUtils arrayMonthNameAbrev] objectAtIndex:comp.month-1], comp.day, comp.year];
 }
 
 + (NSDateComponents *)componentsWithYear:(NSInteger)year month:(NSInteger)month day:(NSInteger)day {

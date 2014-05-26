@@ -10,6 +10,8 @@
 
 #import "FFHeaderMonthForYearCell.h"
 
+#import "FFUtils.h"
+
 @interface FFHeaderMonthForYearCell ()
 @property (nonatomic, strong) UILabel *labelTitle;
 @end
@@ -53,17 +55,17 @@
         [labelTitle setTextColor:[UIColor redColor]];
         [self addSubview:labelTitle];
         
-        for (int i = 0; i < [arrayWeekAbrev count]; i++) {
+        for (int i = 0; i < [[FFUtils arrayWeekAbrev] count]; i++) {
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i*sizeOfCells.width, labelTitle.frame.size.height, sizeOfCells.width, height)];
             [label setTextAlignment:NSTextAlignmentCenter];
-            [label setText:[arrayWeekAbrev objectAtIndex:i]];
+            [label setText:[[FFUtils arrayWeekAbrev] objectAtIndex:i]];
             [label setTextColor:[UIColor blackColor]];
             [label setFont:[UIFont boldSystemFontOfSize:label.font.pointSize-5]];
             [self addSubview:label];
         }
     }
     
-    [labelTitle setText:[[arrayMonthName objectAtIndex:(date.componentsOfDate.month-1)] uppercaseString]];
+    [labelTitle setText:[[[FFUtils arrayMonthName] objectAtIndex:(date.componentsOfDate.month-1)] uppercaseString]];
 }
 
 

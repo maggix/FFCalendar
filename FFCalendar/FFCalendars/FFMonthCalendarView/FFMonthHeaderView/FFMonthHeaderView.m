@@ -10,6 +10,8 @@
 
 #import "FFMonthHeaderView.h"
 
+#import "FFUtils.h"
+
 @implementation FFMonthHeaderView
 
 - (id)initWithFrame:(CGRect)frame
@@ -21,11 +23,11 @@
         NSArray *arrayColor = @[[UIColor grayColor], [UIColor blackColor], [UIColor blackColor], [UIColor blackColor], [UIColor blackColor], [UIColor blackColor], [UIColor grayColor]];
         CGFloat width = (self.frame.size.width-6*SPACE_COLLECTIONVIEW_CELL)/7.;
         
-        for (int i = 0; i < [arrayWeekAbrev count]; i++) {
+        for (int i = 0; i < [[FFUtils arrayWeekAbrev] count]; i++) {
 
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(i*(width+SPACE_COLLECTIONVIEW_CELL), 0., width-5., self.frame.size.height)];
             [label setTextAlignment:NSTextAlignmentRight];
-            [label setText:[arrayWeekAbrev objectAtIndex:i]];
+            [label setText:[[FFUtils arrayWeekAbrev] objectAtIndex:i]];
             [label setTextColor:[arrayColor objectAtIndex:i]];
             [label setFont:[UIFont boldSystemFontOfSize:label.font.pointSize]];
             [self addSubview:label];

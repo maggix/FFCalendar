@@ -12,6 +12,8 @@
 
 #import "FFCalendar.h"
 
+#import "FFUtils.h"
+
 @interface FFCalendarViewController () <FFButtonAddEventWithPopoverProtocol, FFYearCalendarViewProtocol, FFMonthCalendarViewProtocol, FFWeekCalendarViewProtocol, FFDayCalendarViewProtocol>
 @property (nonatomic, strong) NSMutableDictionary *dictEvents;
 @property (nonatomic, strong) UILabel *labelWithMonthAndYear;
@@ -78,7 +80,7 @@
     
     NSDateComponents *comp = [NSDate componentsOfDate:[[FFDateManager sharedManager] currentDate]];
     
-    [labelWithMonthAndYear setText:[NSString stringWithFormat:@"%@ %i", [arrayMonthName objectAtIndex:comp.month-1], comp.year]];
+    [labelWithMonthAndYear setText:[NSString stringWithFormat:@"%@ %i", [[FFUtils arrayMonthName] objectAtIndex:comp.month-1], comp.year]];
 }
 
 

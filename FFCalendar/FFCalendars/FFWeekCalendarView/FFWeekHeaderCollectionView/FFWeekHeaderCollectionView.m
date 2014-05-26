@@ -12,6 +12,7 @@
 
 #import "FFWeekHeaderCell.h"
 #import "FFWeekCollectionViewFlowLayout.h"
+#import "FFUtils.h"
 
 @interface FFWeekHeaderCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 @property (nonatomic) CGFloat lastContentOffset;
@@ -103,7 +104,7 @@
     [cell cleanCell];
     cell.date = dateOfLabel;
     
-    [cell.label setText:[NSString stringWithFormat:@"%@, %i", [arrayWeekAbrev objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day]];
+    [cell.label setText:[NSString stringWithFormat:@"%@, %i", [[FFUtils arrayWeekAbrev] objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day]];
     
     if (compDateOfLabel.weekday == 1 || compDateOfLabel.weekday == 7) {
         [cell.label setTextColor:[UIColor grayColor]];

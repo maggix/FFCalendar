@@ -13,6 +13,8 @@
 #import "FFDayHeaderCell.h"
 #import "FFWeekCollectionViewFlowLayout.h"
 
+#import "FFUtils.h"
+
 #define QNT_BY_PAGING 7
 
 @interface FFDayHeaderCollectionView () <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
@@ -103,7 +105,7 @@
     FFDayHeaderCell *cell = (FFDayHeaderCell *)[collectionView dequeueReusableCellWithReuseIdentifier:REUSE_IDENTIFIER_MONTH_CELL forIndexPath:indexPath];
     [cell.button addTarget:self action:@selector(dayButton:) forControlEvents:UIControlEventTouchUpInside];
     cell.date = dateOfLabel;
-    [cell.button setTitle:[NSString stringWithFormat:@"%@, %i", [arrayWeekAbrev objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day] forState:UIControlStateNormal];
+    [cell.button setTitle:[NSString stringWithFormat:@"%@, %i", [[FFUtils arrayWeekAbrev] objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day] forState:UIControlStateNormal];
     [cell.button setSelected:([NSDate isTheSameDateTheCompA:compDateOfLabel compB:[[FFDateManager sharedManager] currentDate].componentsOfDate])];
     cell.button.tag = indexPath.row;
     

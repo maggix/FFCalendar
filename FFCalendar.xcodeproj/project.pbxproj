@@ -21,6 +21,7 @@
 		55AFEC5E18AC435D005D2B91 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55AFEC4218AC435D005D2B91 /* CoreData.framework */; };
 		55AFEC6618AC435D005D2B91 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 55AFEC6418AC435D005D2B91 /* InfoPlist.strings */; };
 		55AFEC6818AC435D005D2B91 /* FFCalendarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 55AFEC6718AC435D005D2B91 /* FFCalendarTests.m */; };
+		AC0AC2A71933607700739351 /* FFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0AC2A61933607700739351 /* FFUtils.m */; };
 		CDA596E619086CFA00CB4F93 /* DailyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E219086CFA00CB4F93 /* DailyCalendar.png */; };
 		CDA596E719086CFA00CB4F93 /* MonthlyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */; };
 		CDA596E819086CFA00CB4F93 /* WeeklyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */; };
@@ -111,6 +112,8 @@
 		55AFEC6318AC435D005D2B91 /* FFCalendarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FFCalendarTests-Info.plist"; sourceTree = "<group>"; };
 		55AFEC6518AC435D005D2B91 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55AFEC6718AC435D005D2B91 /* FFCalendarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFCalendarTests.m; sourceTree = "<group>"; };
+		AC0AC2A51933607700739351 /* FFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFUtils.h; sourceTree = "<group>"; };
+		AC0AC2A61933607700739351 /* FFUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUtils.m; sourceTree = "<group>"; };
 		CDA596E219086CFA00CB4F93 /* DailyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailyCalendar.png; sourceTree = "<group>"; };
 		CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MonthlyCalendar.png; sourceTree = "<group>"; };
 		CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeeklyCalendar.png; sourceTree = "<group>"; };
@@ -579,6 +582,8 @@
 			children = (
 				CDA8F1F318DA43EA0080DE6D /* FFImportantFilesForCalendar.h */,
 				CDA8F1CF18DA43EA0080DE6D /* FFConstants.h */,
+				AC0AC2A51933607700739351 /* FFUtils.h */,
+				AC0AC2A61933607700739351 /* FFUtils.m */,
 				CDA8F1D318DA43EA0080DE6D /* FFEvent */,
 				CDA8F1D018DA43EA0080DE6D /* FFDateManeger */,
 				CDA8F1C618DA43EA0080DE6D /* FFCategories */,
@@ -863,6 +868,7 @@
 				CDA8F22318DA43EA0080DE6D /* FFDatePopoverController.m in Sources */,
 				CDA8F22618DA43EA0080DE6D /* FFEditEventPopoverController.m in Sources */,
 				CDA8F1FC18DA43EA0080DE6D /* FFDayCalendarView.m in Sources */,
+				AC0AC2A71933607700739351 /* FFUtils.m in Sources */,
 				CDA8F21818DA43EA0080DE6D /* FFYearCollectionView.m in Sources */,
 				CDA8F21F18DA43EA0080DE6D /* UILabel+FFCustomMethods.m in Sources */,
 				CDA8F20E18DA43EA0080DE6D /* FFViewWithHourLines.m in Sources */,
@@ -1015,7 +1021,7 @@
 				GCC_PREFIX_HEADER = "FFCalendar/FFCalendar-Prefix.pch";
 				INFOPLIST_FILE = "FFCalendar/FFCalendar-Info.plist";
 				PRODUCT_NAME = FFCalendar;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1029,7 +1035,7 @@
 				GCC_PREFIX_HEADER = "FFCalendar/FFCalendar-Prefix.pch";
 				INFOPLIST_FILE = "FFCalendar/FFCalendar-Info.plist";
 				PRODUCT_NAME = FFCalendar;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
