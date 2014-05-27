@@ -63,13 +63,17 @@
 
     [self customNavigationBarLayout];
     
-    [self buttonTodayAction:nil];
-    
     [self addSubviews];
     
     [self bringCalendarToFrontAndSelectButton:[arrayButtons objectAtIndex:0]];
     
     [self.navigationController setToolbarHidden:NO];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self buttonTodayAction:nil];    
+    [super viewWillAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning
@@ -169,9 +173,12 @@
 - (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
     NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
+    //Invalidate Month Layout
     [viewCalendarMonth.collectionViewMonth.collectionViewLayout invalidateLayout];
+    //Invalidate Week Layout
     [viewCalendarWeek.scrollViewHeaderWeek.collectionViewLayout invalidateLayout];
     [viewCalendarWeek.weekContainerScroll.collectionViewWeek.collectionViewLayout invalidateLayout];
+    //Invalidate Day Layout
     [viewCalendarDay.collectionViewHeaderDay.collectionViewLayout invalidateLayout];
     [viewCalendarDay.dayContainerScroll.collectionViewDay.collectionViewLayout invalidateLayout];
 
