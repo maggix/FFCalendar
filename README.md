@@ -1,11 +1,17 @@
+What's new in this version
+==========
+
+ - Support for user interface rotation 
+ - Using UITableView instead of UIView within the popover controller(s)
+
 FFCalendar (beta)
 ==========
 Yearly, Monthly, Weekly and Daily Calendars for iOS.
 
 Limitations: 
-- For iPad only
-- Supports portrait mode only
-- Works on iOS 7 and above
+
+ - For iPad only
+ - Works on iOS 7 and above
 
 <img src="https://raw.githubusercontent.com/fggeraissate/FFCalendar/master/FFCalendar/FFCalendars/Util/Images/YearlyCalendar.png" alt="Yearly Calendar for iOS" width="300" height="401"/>
 <img src="https://raw.githubusercontent.com/fggeraissate/FFCalendar/master/FFCalendar/FFCalendars/Util/Images/MonthlyCalendar.png" alt="Monthly Calendar for iOS" width="300" height="401"/>
