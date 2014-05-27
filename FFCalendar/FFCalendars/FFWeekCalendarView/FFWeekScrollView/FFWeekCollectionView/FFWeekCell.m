@@ -70,7 +70,7 @@
                 [labelHourMin addSubview:view];
             }
             //Autoresizing Mask
-            labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+            labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth; //Don't touch height
             [self addSubview:labelHourMin];
             [arrayLabelsHourAndMin addObject:labelHourMin];
             

@@ -53,7 +53,7 @@
                     [labelHourMin addSubview:view];
                 }
                 //Autoresizing Mask
-                labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+                labelHourMin.autoresizingMask = UIViewAutoresizingFlexibleWidth; //Don't touch height
                 [self addSubview:labelHourMin];
                 [arrayLabelsHourAndMin addObject:labelHourMin];
                 
@@ -74,8 +74,8 @@
 }
 
 - (UILabel *)labelWithCurrentHourWithWidth:(CGFloat)_width {
-    
-    //This is the red line with the current time
+    //This is the red line with the current time so it just needs to fit Width    
+
     FFHourAndMinLabel *label = [[FFHourAndMinLabel alloc] initWithFrame:CGRectMake(10, yCurrent, _width-10, HEIGHT_CELL_MIN) date:[NSDate date]];
     [label showText];
     [label setTextColor:[UIColor redColor]];
@@ -84,7 +84,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(label.frame.origin.x+width, HEIGHT_CELL_MIN/2., _width-label.frame.origin.x-width, 1.)];
     [view setBackgroundColor:[UIColor redColor]];
     //Autoresizing Mask
-    view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth; //Don't touch height
     [label addSubview:view];
 
     return label;
