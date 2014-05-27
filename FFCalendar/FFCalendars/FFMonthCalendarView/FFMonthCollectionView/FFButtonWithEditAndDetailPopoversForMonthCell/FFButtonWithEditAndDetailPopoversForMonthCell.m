@@ -12,10 +12,11 @@
 
 #import "FFEventDetailPopoverController.h"
 #import "FFEditEventPopoverController.h"
+#import "FFDayEventTableViewController.h"
 
 @interface FFButtonWithEditAndDetailPopoversForMonthCell () <FFEventDetailPopoverControllerProtocol, FFEditEventPopoverControllerProtocol>
 @property (nonatomic, strong) FFEventDetailPopoverController *popoverControllerDetails;
-@property (nonatomic, strong) FFEditEventPopoverController *popoverControllerEditar;
+//@property (nonatomic, strong) FFEditEventPopoverController *popoverControllerEditar;
 @end
 
 @implementation FFButtonWithEditAndDetailPopoversForMonthCell
@@ -25,7 +26,7 @@
 @synthesize protocol;
 @synthesize event;
 @synthesize popoverControllerDetails;
-@synthesize popoverControllerEditar;
+//@synthesize popoverControllerEditar;
 
 #pragma mark - Lifecycle
 
@@ -65,29 +66,35 @@
 - (IBAction)buttonAction:(id)sender {
     
     if (event) {
-        
+//        
+//        FFDayEventTableViewController *tv = [[FFDayEventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+//        UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tv];
+//        //should be "initWithEvent:..." but this is just a demo table view
+//        UIPopoverController *pc = [[UIPopoverController alloc] initWithContentViewController:nc];
+//        [pc presentPopoverFromRect:self.frame inView:[super superview] permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//        
         popoverControllerDetails = [[FFEventDetailPopoverController alloc] initWithEvent:event];
         [popoverControllerDetails setProtocol:self];
         
         [popoverControllerDetails presentPopoverFromRect:self.frame
-                                           inView:[super superview]
-                         permittedArrowDirections:UIPopoverArrowDirectionAny
-                                         animated:YES];
+                                                  inView:[super superview]
+                                permittedArrowDirections:UIPopoverArrowDirectionAny
+                                                animated:YES];
     }
 }
 
 #pragma mark - FFEventDetailPopoverController Protocol
 
-- (void)showPopoverEditWithEvent:(FFEvent *)_event {
-    
-    popoverControllerEditar = [[FFEditEventPopoverController alloc] initWithEvent:_event];
-    [popoverControllerEditar setProtocol:self];
-    
-    [popoverControllerEditar presentPopoverFromRect:self.frame
-                                              inView:[super superview]
-                            permittedArrowDirections:UIPopoverArrowDirectionAny
-                                            animated:YES];
-}
+//- (void)showPopoverEditWithEvent:(FFEvent *)_event {
+//    
+//    popoverControllerEditar = [[FFEditEventPopoverController alloc] initWithEvent:_event];
+//    [popoverControllerEditar setProtocol:self];
+//    
+//    [popoverControllerEditar presentPopoverFromRect:self.frame
+//                                              inView:[super superview]
+//                            permittedArrowDirections:UIPopoverArrowDirectionAny
+//                                            animated:YES];
+//}
 
 #pragma mark - FFEditEventPopoverController Protocol
 

@@ -12,6 +12,8 @@
 
 #import "FFEventDetailView.h"
 
+#import "FFDayEventTableViewController.h"
+
 @interface FFEventDetailPopoverController () <FFEventDetailViewProtocol>
 @property (nonatomic, strong) UIViewController *popoverContent;
 @property (nonatomic, strong) FFEvent *event;
@@ -31,15 +33,19 @@
     
     event = eventInit;
     
-    CGSize size = CGSizeMake(360, 130.);
-    FFEventDetailView *viewDetails = [[FFEventDetailView alloc] initWithFrame:CGRectMake(0., 0., size.width, size.height) event:eventInit];
-    [viewDetails setProtocol:self];
+    FFDayEventTableViewController *tvc = [[FFDayEventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tvc];
     
-    popoverContent = [UIViewController new];
-    popoverContent.view = viewDetails;
-    popoverContent.preferredContentSize = viewDetails.frame.size;
+//    CGSize size = CGSizeMake(360, 130.);
+//    FFEventDetailView *viewDetails = [[FFEventDetailView alloc] initWithFrame:CGRectMake(0., 0., size.width, size.height) event:eventInit];
+//    [viewDetails setProtocol:self];
     
-    self = [super initWithContentViewController:popoverContent];
+//    popoverContent = [UIViewController new];
+//    popoverContent.view = viewDetails;
+//    popoverContent.preferredContentSize = viewDetails.frame.size;
+    
+//    self.contentViewController.preferredContentSize = size;
+    self = [super initWithContentViewController:nc];
     
     return self;
 }
@@ -48,10 +54,10 @@
 
 - (void)showEditViewWithEvent:(FFEvent *)_event {
     
-    [self dismissPopoverAnimated:YES];
+//    [self dismissPopoverAnimated:YES];
     
-    if ([protocol respondsToSelector:@selector(showPopoverEditWithEvent:)]) {
-        [protocol showPopoverEditWithEvent:_event];
-    }
+//    if ([protocol respondsToSelector:@selector(showPopoverEditWithEvent:)]) {
+//        [protocol showPopoverEditWithEvent:_event];
+//    }
 }
 @end
