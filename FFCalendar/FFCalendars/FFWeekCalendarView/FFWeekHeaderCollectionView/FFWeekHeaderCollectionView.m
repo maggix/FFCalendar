@@ -113,7 +113,7 @@
     }
     
     if ([NSDate isTheSameDateTheCompA:compDateOfLabel compB:[NSDate componentsOfCurrentDate]]) {
-        [cell.imageView setImage:[UIImage imageNamed:@"redCircle"]];
+        [cell.imageView setImage:[UIImage FF_tintedImageNamed:@"redCircle"]];
         [cell.label setTextColor:[UIColor whiteColor]];
     }
     

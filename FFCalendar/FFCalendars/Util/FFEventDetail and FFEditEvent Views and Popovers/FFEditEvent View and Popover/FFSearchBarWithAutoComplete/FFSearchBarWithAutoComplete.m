@@ -43,7 +43,7 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardShown:) name:UIKeyboardDidShowNotification object:nil];
      
         [self setDelegate:self];
-        [self setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]]];
+        [self setBackgroundImage:[UIImage FF_imageWithColor:[UIColor whiteColor]]];
         [self setPlaceholder:@"Customer"];
         [[UITextField appearanceWhenContainedIn:[FFSearchBarWithAutoComplete class], nil] setFont:[UIFont systemFontOfSize:18.]];
         [[UITextField appearanceWhenContainedIn:[FFSearchBarWithAutoComplete class], nil] setTextAlignment:NSTextAlignmentCenter];

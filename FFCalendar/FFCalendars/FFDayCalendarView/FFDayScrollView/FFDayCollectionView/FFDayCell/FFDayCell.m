@@ -97,11 +97,11 @@
     
     FFHourAndMinLabel *label = [[FFHourAndMinLabel alloc] initWithFrame:CGRectMake(.0, _yCurrent, _width, HEIGHT_CELL_MIN) date:[NSDate date]];
     [label showText];
-    [label setTextColor:[UIColor redColor]];
+    [label setTextColor:self.tintColor];
     CGFloat width = [label widthThatWouldFit];
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(label.frame.origin.x+width+10., HEIGHT_CELL_MIN/2., _width-label.frame.origin.x-width-20., 1.)];
-    [view setBackgroundColor:[UIColor redColor]];
+    [view setBackgroundColor:self.tintColor];
     //Autoresizing Mask
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [label addSubview:view];

@@ -62,7 +62,7 @@
 - (void)markAsCurrentDay {
     
     [labelDay setTextColor:[UIColor whiteColor]];
-    [imageViewCircle setImage:[UIImage imageNamed:@"redCircle"]];
+    [imageViewCircle setImage:[UIImage FF_tintedImageNamed:@"redCircle"]];
 }
 
 @end

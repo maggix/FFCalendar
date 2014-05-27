@@ -9,6 +9,7 @@
 //
 
 #import "FFDayHeaderButton.h"
+#import "UIImage+FFCustomMethods.h"
 
 static UIImage *imageCircleRed;
 static UIImage *imageCircleBlack;
@@ -34,7 +35,7 @@ static UIImage *imageCircleBlack;
 
         if (!imageCircleBlack) {
             imageCircleBlack = [UIImage imageNamed:@"blackCircle"];
-            imageCircleRed = [UIImage imageNamed:@"redCircle"];
+            imageCircleRed = [UIImage FF_tintedImageNamed:@"redCircle"];
         }
     }
     return self;

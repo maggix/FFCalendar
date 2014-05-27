@@ -9,8 +9,11 @@
 //
 
 #import "FFRedAndWhiteButton.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation FFRedAndWhiteButton
+
+const CGFloat roundCornerSize = 5;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -18,16 +21,21 @@
     if (self) {
         // Initialization code
         
+        self.tintColor = [UIColor orangeColor];
+        
         [self setFrame:frame];
         
-        [self setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self setTitleColor:self.tintColor forState:UIControlStateNormal];
         [self setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
         
-        [self setBackgroundImage:[UIImage imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
-        [self setBackgroundImage:[UIImage imageWithColor:[UIColor redColor]] forState:UIControlStateSelected];
+        [self setBackgroundImage:[UIImage FF_imageWithColor:[UIColor clearColor]] forState:UIControlStateNormal];
+        [self setBackgroundImage:[UIImage FF_imageWithColor:self.tintColor] forState:UIControlStateSelected];
         
-        [self.layer setBorderColor:[UIColor redColor].CGColor];
+        [self.layer setBorderColor:self.tintColor.CGColor];
         [self.layer setBorderWidth:1.];
+        self.layer.cornerRadius = roundCornerSize;
+        self.layer.masksToBounds = YES;
+
     }
     return self;
 }
@@ -46,9 +54,9 @@
     self.selected = _selected;
     
     if(_selected) {
-        [self.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [self.layer setBorderColor:[UIColor clearColor].CGColor];
     } else {
-        [self.layer setBorderColor:[UIColor redColor].CGColor];
+        [self.layer setBorderColor:self.tintColor.CGColor];
     }
 }
 

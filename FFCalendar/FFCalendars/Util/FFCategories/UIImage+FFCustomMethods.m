@@ -12,7 +12,7 @@
 
 @implementation UIImage (FFCustomMethods)
 
-+ (UIImage *)imageWithColor:(UIColor *)color {
++ (UIImage *)FF_imageWithColor:(UIColor *)color {
     
     CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -27,7 +27,7 @@
     return image;
 }
 
-+ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize {
++ (UIImage *)FF_scaleImage:(UIImage *)image toSize:(CGSize)newSize {
     
     //UIGraphicsBeginImageContext(newSize);
     UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
@@ -35,6 +35,12 @@
     UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     return newImage;
+}
+
++ (UIImage*)FF_tintedImageNamed:(NSString*)imageName
+{
+    UIImage *image = [UIImage imageNamed:imageName];
+    return  [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
 @end

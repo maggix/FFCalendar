@@ -202,7 +202,7 @@
     
     [button addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
     [button setTitle:title forState:UIControlStateNormal];
-    [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [button setTitleColor:[[UIApplication sharedApplication] keyWindow].tintColor forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont boldSystemFontOfSize:button.titleLabel.font.pointSize]];
     [button setFrame:frame];
     [button setContentMode:UIViewContentModeScaleAspectFit];

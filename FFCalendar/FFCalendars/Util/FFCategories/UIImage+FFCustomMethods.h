@@ -12,7 +12,8 @@
 
 @interface UIImage (FFCustomMethods)
 
-+ (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)newSize;
++ (UIImage *)FF_imageWithColor:(UIColor *)color;
++ (UIImage *)FF_scaleImage:(UIImage *)image toSize:(CGSize)newSize;
++ (UIImage*)FF_tintedImageNamed:(NSString*)imageName;
 
 @end
