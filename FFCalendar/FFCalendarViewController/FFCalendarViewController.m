@@ -172,6 +172,8 @@
     [viewCalendarMonth.collectionViewMonth.collectionViewLayout invalidateLayout];
     [viewCalendarWeek.scrollViewHeaderWeek.collectionViewLayout invalidateLayout];
     [viewCalendarWeek.weekContainerScroll.collectionViewWeek.collectionViewLayout invalidateLayout];
+    [viewCalendarDay.collectionViewHeaderDay.collectionViewLayout invalidateLayout];
+    [viewCalendarDay.dayContainerScroll.collectionViewDay.collectionViewLayout invalidateLayout];
 
 //    NSLog(@"self.view.frame %@", NSStringFromCGRect(self.view.frame));
 //    if (UIInterfaceOrientationIsPortrait(fromInterfaceOrientation)) {
@@ -222,6 +224,7 @@
     viewCalendarDay = [[FFDayCalendarView alloc] initWithFrame:CGRectMake(0., 0., self.view.frame.size.width, self.view.frame.size.height)];
     [viewCalendarDay setProtocol:self];
     [viewCalendarDay setDictEvents:dictEvents];
+    viewCalendarDay.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:viewCalendarDay];
     
     arrayCalendars = @[viewCalendarYear, viewCalendarMonth, viewCalendarWeek, viewCalendarDay];

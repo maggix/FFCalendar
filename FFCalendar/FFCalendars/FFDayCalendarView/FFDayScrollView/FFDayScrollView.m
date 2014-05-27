@@ -11,6 +11,7 @@
 #import "FFDayScrollView.h"
 
 #import "FFViewWithHourLines.h"
+#import "FFDayCollectionViewFlowLayout.h"
 
 @interface FFDayScrollView ()
 @end
@@ -51,11 +52,15 @@
         
         FFViewWithHourLines *viewWithHourLines = [[FFViewWithHourLines alloc] initWithFrame:CGRectZero];
         
-        collectionViewDay = [[FFDayCollectionView alloc] initWithFrame:CGRectMake(10.,0.,self.frame.size.width-10,viewWithHourLines.totalHeight)collectionViewLayout:[UICollectionViewFlowLayout new]];
+        collectionViewDay = [[FFDayCollectionView alloc] initWithFrame:CGRectMake(10.,0.,self.frame.size.width-10,viewWithHourLines.totalHeight)collectionViewLayout:[FFDayCollectionViewFlowLayout new]];
         [collectionViewDay scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:[NSDate componentsOfDate:[[FFDateManager sharedManager] currentDate]].day-1+7 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+        //AutoresizingMask
+        collectionViewDay.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         [self addSubview:collectionViewDay];
         
         labelWithActualHour = [viewWithHourLines labelWithCurrentHourWithWidth:self.frame.size.width];
+        //Autoresizing Mask
+        labelWithActualHour.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [labelWithActualHour setFrame:CGRectMake(labelWithActualHour.frame.origin.x, labelWithActualHour.frame.origin.y+viewWithHourLines.frame.origin.y, labelWithActualHour.frame.size.width, labelWithActualHour.frame.size.height)];
         
         [self setContentSize:CGSizeMake(self.frame.size.width, collectionViewDay.frame.origin.y+collectionViewDay.frame.size.height)];

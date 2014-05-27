@@ -24,6 +24,7 @@
 		AC0AC2A71933607700739351 /* FFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AC0AC2A61933607700739351 /* FFUtils.m */; };
 		AC10553E1933C6F70029E5A9 /* blackCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC10553C1933C6F70029E5A9 /* blackCircle@2x.png */; };
 		AC10553F1933C6F70029E5A9 /* redCircle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AC10553D1933C6F70029E5A9 /* redCircle@2x.png */; };
+		AC1055481934B0530029E5A9 /* FFDayEventTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC1055471934B0530029E5A9 /* FFDayEventTableViewController.m */; };
 		CDA596E619086CFA00CB4F93 /* DailyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E219086CFA00CB4F93 /* DailyCalendar.png */; };
 		CDA596E719086CFA00CB4F93 /* MonthlyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */; };
 		CDA596E819086CFA00CB4F93 /* WeeklyCalendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */; };
@@ -118,6 +119,8 @@
 		AC0AC2A61933607700739351 /* FFUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFUtils.m; sourceTree = "<group>"; };
 		AC10553C1933C6F70029E5A9 /* blackCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackCircle@2x.png"; sourceTree = "<group>"; };
 		AC10553D1933C6F70029E5A9 /* redCircle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redCircle@2x.png"; sourceTree = "<group>"; };
+		AC1055461934B0530029E5A9 /* FFDayEventTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDayEventTableViewController.h; sourceTree = "<group>"; };
+		AC1055471934B0530029E5A9 /* FFDayEventTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDayEventTableViewController.m; sourceTree = "<group>"; };
 		CDA596E219086CFA00CB4F93 /* DailyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DailyCalendar.png; sourceTree = "<group>"; };
 		CDA596E319086CFA00CB4F93 /* MonthlyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MonthlyCalendar.png; sourceTree = "<group>"; };
 		CDA596E419086CFA00CB4F93 /* WeeklyCalendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WeeklyCalendar.png; sourceTree = "<group>"; };
@@ -411,6 +414,8 @@
 				CDA8F17D18DA43EA0080DE6D /* FFDayCollectionView */,
 				CDA8F18518DA43EA0080DE6D /* FFDayScrollView.h */,
 				CDA8F18618DA43EA0080DE6D /* FFDayScrollView.m */,
+				AC1055461934B0530029E5A9 /* FFDayEventTableViewController.h */,
+				AC1055471934B0530029E5A9 /* FFDayEventTableViewController.m */,
 			);
 			path = FFDayScrollView;
 			sourceTree = "<group>";
@@ -893,6 +898,7 @@
 				CDA8F22518DA43EA0080DE6D /* FFHourPopoverController.m in Sources */,
 				CDA8F20918DA43EA0080DE6D /* FFMonthHeaderView.m in Sources */,
 				CDA8F20718DA43EA0080DE6D /* FFMonthCollectionView.m in Sources */,
+				AC1055481934B0530029E5A9 /* FFDayEventTableViewController.m in Sources */,
 				CDA8F20D18DA43EA0080DE6D /* FFHourAndMinLabel.m in Sources */,
 				CDA8F21418DA43EA0080DE6D /* FFHeaderMonthForYearCell.m in Sources */,
 				CDA8F20F18DA43EA0080DE6D /* FFWeekCell.m in Sources */,

@@ -10,17 +10,10 @@
 
 #import "FFDayCalendarView.h"
 
-#import "FFDayHeaderCollectionView.h"
-#import "FFDayScrollView.h"
+#import "FFDayEventTableViewController.h"
 
-#import "FFEventDetailView.h"
-#import "FFEditEventView.h"
-
-@interface FFDayCalendarView () <FFDayCellProtocol, FFEditEventViewProtocol, FFEventDetailViewProtocol, FFDayHeaderCollectionViewProtocol, FFDayCollectionViewProtocol, UIGestureRecognizerDelegate>
-@property (nonatomic, strong) FFDayHeaderCollectionView *collectionViewHeaderDay;
-@property (nonatomic, strong) FFDayScrollView *dayContainerScroll;
-@property (nonatomic, strong) FFEventDetailView *viewDetail;
-@property (nonatomic, strong) FFEditEventView *viewEditar;
+@interface FFDayCalendarView () <FFDayCellProtocol, FFDayHeaderCollectionViewProtocol, FFDayCollectionViewProtocol, UIGestureRecognizerDelegate>
+@property (nonatomic, strong) UINavigationController *eventDetailNavController;
 @property (nonatomic) BOOL boolAnimate;
 @end
 
@@ -31,8 +24,7 @@
 @synthesize dictEvents;
 @synthesize collectionViewHeaderDay;
 @synthesize dayContainerScroll;
-@synthesize viewDetail;
-@synthesize viewEditar;
+@synthesize eventDetailNavController;;
 @synthesize protocol;
 @synthesize boolAnimate;
 
@@ -72,9 +64,13 @@
         collectionViewHeaderDay = [[FFDayHeaderCollectionView alloc] initWithFrame:CGRectMake(0., 0., self.frame.size.width, HEADER_HEIGHT_SCROLL)];
         [collectionViewHeaderDay setProtocol:self];
         [collectionViewHeaderDay scrollToDate:[[FFDateManager sharedManager] currentDate]];
+        //AutoresizingMask
+        collectionViewHeaderDay.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self addSubview:collectionViewHeaderDay];
         
         dayContainerScroll = [[FFDayScrollView alloc] initWithFrame:CGRectMake(0, HEADER_HEIGHT_SCROLL, self.frame.size.width/2., self.frame.size.height-HEADER_HEIGHT_SCROLL)];
+        //AutoresizingMask
+        dayContainerScroll.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleRightMargin;
         [self addSubview:dayContainerScroll];
     }
     [dayContainerScroll setDictEvents:dictEvents];
@@ -100,12 +96,7 @@
 #pragma mark - Tap Gesture
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
-    
-    for (UIView *subviews in self.subviews) {
-        if ([subviews isKindOfClass:[FFEventDetailView class]] || [subviews isKindOfClass:[FFEditEventView class]]) {
-            [subviews removeFromSuperview];
-        }
-    }
+
 }
 
 #pragma mark - UIGestureRecognizer Delegate
@@ -114,7 +105,7 @@
     
     CGPoint point = [gestureRecognizer locationInView:self];
     
-    return !(viewEditar.superview != nil && CGRectContainsPoint(viewEditar.frame, point));
+    return YES;
 }
 
 #pragma mark - FFDayCollectionView Protocol
@@ -137,61 +128,13 @@
 
 - (void)showViewDetailsWithEvent:(FFEvent *)_event cell:(UICollectionViewCell *)cell {
     
-    [viewEditar removeFromSuperview];
-    viewEditar = nil;
-    [viewDetail removeFromSuperview];
-    viewDetail = nil;
+    [eventDetailNavController.view removeFromSuperview];
     
-   viewDetail = [[FFEventDetailView alloc] initWithFrame:CGRectMake(self.frame.size.width/2., HEADER_HEIGHT_SCROLL, self.frame.size.width/2., self.frame.size.height-HEADER_HEIGHT_SCROLL-65.) event:_event];
-    [viewDetail setProtocol:self];
-    [self addSubview:viewDetail];
-}
-
-#pragma mark - FFEventDetailView Protocol
-
-- (void)showEditViewWithEvent:(FFEvent *)_event {
-    
-    viewEditar = [[FFEditEventView alloc] initWithFrame:CGRectMake(self.frame.size.width/2., HEADER_HEIGHT_SCROLL, self.frame.size.width/2., self.frame.size.height-HEADER_HEIGHT_SCROLL-65.) event:_event];
-    [viewEditar setProtocol:self];
-    [self addSubview:viewEditar];
-    
-    [viewDetail removeFromSuperview];
-    viewDetail = nil;
-}
-
-#pragma mark - FFEditEventView Protocol
-
-- (void)saveEvent:(FFEvent *)_event {
-    
-    NSMutableArray *arrayEvents = [dictEvents objectForKey:_event.dateDay];
-    
-    if (!arrayEvents) {
-        arrayEvents = [NSMutableArray new];
-        [dictEvents setObject:arrayEvents forKey:_event.dateDay];
-    }
-    
-    [arrayEvents addObject:_event];
-}
-
-- (void)deleteEvent:(FFEvent *)_event {
-    
-    NSMutableArray *arrayEvents = [dictEvents objectForKey:_event.dateDay];
-    [arrayEvents removeObject:_event];
-    if (arrayEvents.count == 0) {
-        [dictEvents removeObjectForKey:_event.dateDay];
-    }
-    
-    if (protocol != nil && [protocol respondsToSelector:@selector(setNewDictionary:)]) {
-        [protocol setNewDictionary:dictEvents];
-    } else {
-        [dayContainerScroll.collectionViewDay reloadData];
-    }
-}
-
-- (void)removeThisView:(UIView *)view {
-    
-    [view removeFromSuperview];
-    view = nil;
+    FFDayEventTableViewController *viewDetailTable = [[FFDayEventTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    eventDetailNavController = [[UINavigationController alloc] initWithRootViewController:viewDetailTable];
+   [eventDetailNavController.view setFrame:CGRectMake(self.frame.size.width/2., HEADER_HEIGHT_SCROLL, self.frame.size.width/2., self.frame.size.height-HEADER_HEIGHT_SCROLL)];
+    eventDetailNavController.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleLeftMargin;
+    [self addSubview:eventDetailNavController.view];
 }
 
 @end

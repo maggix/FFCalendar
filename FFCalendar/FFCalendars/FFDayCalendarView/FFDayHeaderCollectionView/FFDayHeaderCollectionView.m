@@ -105,8 +105,11 @@
     FFDayHeaderCell *cell = (FFDayHeaderCell *)[collectionView dequeueReusableCellWithReuseIdentifier:REUSE_IDENTIFIER_MONTH_CELL forIndexPath:indexPath];
     [cell.button addTarget:self action:@selector(dayButton:) forControlEvents:UIControlEventTouchUpInside];
     cell.date = dateOfLabel;
+    cell.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
     [cell.button setTitle:[NSString stringWithFormat:@"%@, %i", [[FFUtils arrayWeekAbrev] objectAtIndex:compDateOfLabel.weekday-1], compDateOfLabel.day] forState:UIControlStateNormal];
     [cell.button setSelected:([NSDate isTheSameDateTheCompA:compDateOfLabel compB:[[FFDateManager sharedManager] currentDate].componentsOfDate])];
+    //Autoresizing Mask
+    cell.button.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     cell.button.tag = indexPath.row;
     
     if (cell.isSelected && protocol && [protocol respondsToSelector:@selector(daySelected:)]) {

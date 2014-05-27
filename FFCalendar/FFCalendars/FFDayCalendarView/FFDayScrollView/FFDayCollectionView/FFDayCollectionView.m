@@ -86,6 +86,7 @@
     NSDateComponents *comp = [NSDate componentsOfDate:[[FFDateManager sharedManager] currentDate]];
     
     FFDayCell *cell = (FFDayCell *)[collectionView dequeueReusableCellWithReuseIdentifier:REUSE_IDENTIFIER_MONTH_CELL forIndexPath:indexPath];
+    cell.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [cell setProtocol:(id)self.superview.superview];
     [cell setDate:[NSDate dateWithYear:comp.year month:comp.month day:1+indexPath.row-7]];
     [cell showEvents:[dictEvents objectForKey:cell.date]];

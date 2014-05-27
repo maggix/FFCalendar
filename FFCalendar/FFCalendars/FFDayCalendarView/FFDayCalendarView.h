@@ -9,6 +9,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FFDayHeaderCollectionView.h"
+#import "FFDayScrollView.h"
 
 @protocol FFDayCalendarViewProtocol <NSObject>
 @required
@@ -16,6 +18,9 @@
 @end
 
 @interface FFDayCalendarView : UIView
+
+@property (nonatomic, strong) FFDayHeaderCollectionView *collectionViewHeaderDay;
+@property (nonatomic, strong) FFDayScrollView *dayContainerScroll;
 
 @property (nonatomic, strong) id<FFDayCalendarViewProtocol> protocol;
 @property (nonatomic, strong) NSMutableDictionary *dictEvents;
